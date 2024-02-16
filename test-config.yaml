@@ -1,0 +1,20 @@
+receivers:
+  honeycomb_event:
+
+processors:
+  batch:
+
+exporters:
+  debug:
+    verbosity: detailed
+  otlp:
+    endpoint: "api.honeycomb.io:443"
+    headers:
+      "x-honeycomb-team": ${HONEYCOMB_API_KEY}
+
+service:
+  pipelines:
+    traces:
+      receivers: [honeycomb_event]
+      processors: [batch]
+      exporters: [debug]

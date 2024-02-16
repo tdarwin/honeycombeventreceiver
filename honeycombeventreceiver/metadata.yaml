@@ -1,0 +1,9 @@
+type: honeycomb_event
+
+status:
+  class: receiver
+  stability:
+    alpha: [traces, logs]
+  distributions: []
+  codeowners:
+    active: [tdarwin]
